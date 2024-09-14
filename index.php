@@ -27,21 +27,26 @@
                 padding-top: 1px;
             }
             #topcontrol {
-                @media (max-width: 38rem) {
-                    display: none;
-                }
                 position: fixed;
                 bottom: 10px;
                 right: 20px;
                 opacity: 0;
                 cursor: pointer;
+                text-align: center;
             }
             .arrow {
                 font-size: xxx-large;
                 margin: 0;
             }
+            @media screen and (max-width: 38rem) {
+                #topcontrol {
+                    display: none;
+                }
+            }
         </style>
-        <script type="text/javascript" >
+    </head>
+    <body>
+        <script>
            (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
            m[i].l=1*new Date();
            for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
@@ -54,17 +59,15 @@
                 accurateTrackBounce:true
            });
         </script>
-        <noscript><div><img src="https://mc.yandex.ru/watch/98308638" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
-    </head>
-    <body>
+        <noscript><div><img src="https://mc.yandex.ru/watch/98308638" style="position:absolute; left:-9999px;" alt=""></div></noscript>
         <div class="server-list">
             <h1>Работающие ИРЦ-серверы Руснета:</h1>
-            <ul>
+            <ol>
                 <li><a href="#server-01">irc.anarxi.st</a></li>
-                <li><a href="#server-02">irc.tambov.ru</a></li>
-                <li><a href="#server-03">irc.newit-lan.ru</a></li>
+                <li><a href="#server-02">irc.newit-lan.ru</a></li>
+                <li><a href="#server-03">irc.tambov.ru</a></li>
                 <li><a href="#server-04">irc.tomsk.net</a></li>
-            </ul>
+            </ol>
         </div>
         <div class="server-item" id="server-01">
             <h2>irc.anarxi.st</h2>
@@ -164,35 +167,6 @@ End of MOTD command.
             </div>
         </div>
         <div class="server-item" id="server-02">
-            <h2>irc.tambov.ru</h2>
-            <div class="motd">
-                <pre>
-- irc.tambov.ru Message of the Day - 
-- 22/2/2013 15:51
-- =======================================================================
-- RusNet IRC Network                               Tambov IRC IPv6 Server
-- -----------------------------------------------------------------------
-- Now, the supported codepages are on the following ports:
-- 
--   6667: KOI8-R           7770: UTF-8           7773: ISO-8859_5 
--   6668: Translit         7771: CP1251          7774: Macintosh 
--   6669: CP1251           7772: CP866           7775: Translit 
-- 
-- with SSL:
-- 
--   9996: UTF-8      9997: KOI8-R      9998: Translit      9999: CP1251
-- ----------------------------------------------------------------------
-- IPv6: irc6.tambov.ru; ports are the same
-- ----------------------------------------------------------------------
-- Always remember that IRC is not a right, it is a _privilege_
-- ----------------------------------------------------------------------
-- Administrative contact:                        denis at tambov dot ru 
-- ======================================================================
-End of MOTD command.
-                </pre>
-            </div>
-        </div>
-        <div class="server-item" id="server-03">
             <h2>irc.newit-lan.ru</h2>
             <div class="motd">
                 <pre>
@@ -231,6 +205,36 @@ End of MOTD command.
 End of MOTD command.
                 </pre>
             </div>
+        </div>
+        <div class="server-item" id="server-03">
+            <h2>irc.tambov.ru</h2>
+            <div class="motd">
+                <pre>
+- irc.tambov.ru Message of the Day - 
+- 22/2/2013 15:51
+- =======================================================================
+- RusNet IRC Network                               Tambov IRC IPv6 Server
+- -----------------------------------------------------------------------
+- Now, the supported codepages are on the following ports:
+- 
+-   6667: KOI8-R           7770: UTF-8           7773: ISO-8859_5 
+-   6668: Translit         7771: CP1251          7774: Macintosh 
+-   6669: CP1251           7772: CP866           7775: Translit 
+- 
+- with SSL:
+- 
+-   9996: UTF-8      9997: KOI8-R      9998: Translit      9999: CP1251
+- ----------------------------------------------------------------------
+- IPv6: irc6.tambov.ru; ports are the same
+- ----------------------------------------------------------------------
+- Always remember that IRC is not a right, it is a _privilege_
+- ----------------------------------------------------------------------
+- Administrative contact:                        denis at tambov dot ru 
+- ======================================================================
+End of MOTD command.
+                </pre>
+            </div>
+        </div>
         <div class="server-item" id="server-04">
             <h2>irc.tomsk.net</h2>
             <div class="motd">
@@ -282,10 +286,8 @@ End of MOTD command.
         </div>
         <p>Обновлено 14 сентября 2024 года. <a href="mailto:melloist@yandex.ru">Связаться</a>.</p>
         <div id="topcontrol" title="Наверх">
-            <center>
-                <p class="arrow">&uarr;</p>
-                <p>Наверх</p>
-            </center>
+            <p class="arrow">&uarr;</p>
+            <p>Наверх</p>
         </div>
         <script>
             (function (document) {
