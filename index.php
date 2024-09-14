@@ -15,9 +15,16 @@
                 background: #ffffff;
                 padding: 50px 0;
             }
+            a {
+                color: #000000;
+            }
+            a:hover, #topcontrol:hover {
+                text-decoration-thickness: 2px;
+                font-weight: bold;
+            }
             .motd {
                 color: white;
-                background: black;
+                background: #000000;
                 display: inline-block;
                 padding: 10px;
                 border-radius: 10px;
@@ -25,6 +32,9 @@
             .server-item {
                 margin-top: 30px;
                 padding-top: 1px;
+            }
+            .updated {
+                margin-top: 50px;
             }
             #topcontrol {
                 position: fixed;
@@ -284,7 +294,7 @@ End of MOTD command.
                 </pre>
             </div>
         </div>
-        <p>Обновлено 14 сентября 2024 года. <a href="mailto:melloist@yandex.ru">Связаться</a>.</p>
+        <p class="updated">Обновлено 14 сентября 2024 года. <a href="mailto:melloist@yandex.ru">Связаться</a>.</p>
         <div id="topcontrol" title="Наверх">
             <p class="arrow">&uarr;</p>
             <p>Наверх</p>
