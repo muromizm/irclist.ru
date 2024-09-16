@@ -8,6 +8,9 @@
         <link rel="icon" type="image/x-icon" href="/favicon.ico">
         <title>Работающие ИРЦ-серверы Руснета</title>
         <style>
+            html {
+                scroll-behavior: smooth;
+            }
             body {
                 font-family: monospace;
                 max-width: max-content;
@@ -48,6 +51,9 @@
                 font-size: xxx-large;
                 margin: 0;
             }
+            .remark {
+                color: #999999;
+            }
             @media screen and (max-width: 38rem) {
                 #topcontrol {
                     display: none;
@@ -75,8 +81,9 @@
             <ol>
                 <li><a href="#server-01">irc.anarxi.st</a></li>
                 <li><a href="#server-02">irc.newit-lan.ru</a></li>
-                <li><a href="#server-03">irc.tambov.ru</a></li>
-                <li><a href="#server-04">irc.tomsk.net</a></li>
+                <li><a href="#server-03">irc.run.net</a> <span class="remark">(подключаться по IP: <strong>2.63.252.5</strong>)</span></li>
+                <li><a href="#server-04">irc.tambov.ru</a></li>
+                <li><a href="#server-05">irc.tomsk.net</a></li>
             </ol>
         </div>
         <div class="server-item" id="server-01">
@@ -217,6 +224,92 @@ End of MOTD command.
             </div>
         </div>
         <div class="server-item" id="server-03">
+            <h2>irc.run.net</h2>
+            <p><strong>ВАЖНО!</strong> Домен run.net продан, подключаться по IP: <strong>2.63.252.53</strong></p>
+            <div class="motd">
+                <pre>
+- irc.run.net Message of the Day - 
+- 26/7/2011 22:42
+- 
+- SPB IRC Network                                             irc.run.net
+- -----------------------------------------------------------------------
+-        Welcome to irc.run.net, located in St-Peterburg, Russia
+- 
+-                 ___    __    __    __  _ _  _____  
+-               / _  \/\ \ \/\ \ \/\ \ \/ _ \/__   \   
+-              / /_/ / / / /  \/ /  \/ / _ \/  / /\/  
+-             / /_  / /_/ / /\  / /\  / /_\/  / /  
+-            /_/  \_\____/\_\ \/\_\ \/\___\   \/  
+-                      RUSNet IRC Network  
+- 
+- 
+-  [RULES]
+-  Bots: We do not allow bots, but will not remove them unless they 
+-  bother us.
+-  
+-  Spam: Unsolicited advertisements will not be tolerated.
+-  Content: We will not tolerate the distribution of illegal materials,
+-  including software piracy or child pornography.
+-  
+-  We reserve the right to remove your access to this server at any time.
+-  Any violation of the rules stated above will result in you being
+-  banished from the island.
+-  
+-  No monitoring of private communications will ever occur on this
+-  server. The administration of this server believes strongly in your
+-  inalienable human right to privacy.
+-  
+-  [ADMINISTRATION]
+-  Silencio <silence (at) irc.run.net>
+-  
+-  We are not looking for IRC operators. Please do not ask.
+- 
+-  [WHO HELPS US]
+-  *** RUNNet ***
+-  Russian University Network http://www.runnet.ru
+- 
+-  *** DevExperts inc. ***
+-  This project is sponsored by DevExperts inc. http://www.devexperts.com 
+- 
+-  *** Deware LLC ***
+-  NetGuard Solutions inc. 
+-  (Real Time Intrusion Prevention and Dynamic Filtering)
+-  
+- ----------------------------------------------------------------------- 
+- Codepages per ports are:        |    Kodirovki po portam: 
+- -----------------------         |    ---------------------------------- 
+-   6660: UTF-8               7770: KOI8-R              7774: Macintosh 
+-   6667: KOI8-U              7771: CP1251                  7775: ASCII 
+-   6668: ASCII               7772: CP866                
+-   6669: CP1251              7773: ISO-8859-5           
+-   -----------------------------------------------------------------
+-   9997: KOI8-R (SSL)        9998: Translit (SSL)    9999: CP1251(SSL)
+- -----------------------         |    ----------------------------------    
+-  To change codepage on-the-fly: |     Smenit' kodirovku na-letu: 
+-                  /quote codepage codepage-name 
+- -----------------------         |    ----------------------------------  
+- Network Services running:       |         V seti rabotajut servisy: 
+-                   NickServ, ChanServ, MemoServ
+- Start using them with:          |     Dlya nachala naberite comandu:  
+-                   /msg NickServ@*.RusNet help 
+-   (/msg MemoServ@*.RusNet help or /msg ChanServ@*.RusNet help)  
+- -----------------------         |    ----------------------------------  
+- If you need help                |        Esli nuzhna pomosch:
+-                           /join #help
+-                           /join #abuse 
+- -----------------------         |    ---------------------------------- 
+- This server supports SSL on ports 9997(koi8), 9998(translit), 9999(win)
+- ----------------------------------------------------------------------- 
+- Current Administrative contact:       IRC admin <ircadm at irc.run.net> 
+- irc.run.net WEB server:                             http://irc.run.net
+- irc.run.net WEB-gate:                                http://irc.spb.ru 
+- RusNet WEB server:                                  http://www.rus.net 
+- =======================================================================
+End of MOTD command.
+                </pre>
+            </div>
+        </div>
+        <div class="server-item" id="server-04">
             <h2>irc.tambov.ru</h2>
             <div class="motd">
                 <pre>
@@ -245,7 +338,7 @@ End of MOTD command.
                 </pre>
             </div>
         </div>
-        <div class="server-item" id="server-04">
+        <div class="server-item" id="server-05">
             <h2>irc.tomsk.net</h2>
             <div class="motd">
                 <pre>
@@ -294,7 +387,7 @@ End of MOTD command.
                 </pre>
             </div>
         </div>
-        <p class="updated">Обновлено 14 сентября 2024 года. <a href="mailto:melloist@yandex.ru">Связаться</a>.</p>
+        <p class="updated">Обновлено 16 сентября 2024 года. <a href="mailto:melloist@yandex.ru">Связаться</a>.</p>
         <div id="topcontrol" title="Наверх">
             <p class="arrow">&uarr;</p>
             <p>Наверх</p>
