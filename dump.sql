@@ -1,0 +1,80 @@
+-- phpMyAdmin SQL Dump
+-- version 4.9.7
+-- https://www.phpmyadmin.net/
+--
+-- Host: localhost
+-- Generation Time: Sep 21, 2024 at 05:41 PM
+-- Server version: 5.7.21-20-beget-5.7.21-20-1-log
+-- PHP Version: 5.6.40
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
+START TRANSACTION;
+SET time_zone = "+00:00";
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
+
+--
+-- Database: `v912769x_irclist`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `servers`
+--
+-- Creation: Sep 21, 2024 at 11:29 AM
+-- Last update: Sep 21, 2024 at 12:16 PM
+--
+
+DROP TABLE IF EXISTS `servers`;
+CREATE TABLE `servers` (
+  `id` int(11) NOT NULL,
+  `domain` text,
+  `ip` text,
+  `port` text,
+  `menu_comment` text,
+  `item_comment` text,
+  `motd` text NOT NULL,
+  `updated_at` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `servers`
+--
+
+INSERT INTO `servers` (`id`, `domain`, `ip`, `port`, `menu_comment`, `item_comment`, `motd`, `updated_at`) VALUES
+(1, 'irc.anarxi.st', NULL, NULL, NULL, NULL, '- irc.anarxi.st Message of the Day - \r\n- 25/6/2014 15:03\r\n- \r\n- IRC Network                                               irc.anarxi.st\r\n- -----------------------------------------------------------------------\r\n-        Welcome to irc.anarxi.st, located in Netherlands\r\n-                 \r\n-  [RULES]\r\n-  Spam: Unsolicited advertisements will not be tolerated.\r\n-  Content: We will not tolerate the distribution of illegal materials,\r\n-  including software piracy or child pornography.\r\n-  \r\n-  We reserve the right to remove your access to this server at any time.\r\n-  Any violation of the rules stated above will result in you being\r\n-  banished from the island.\r\n-  \r\n-  No monitoring of private communications will ever occur on this\r\n-  server. The administration of this server believes strongly in your\r\n-  inalienable human right to privacy.\r\n-  \r\n-  [ADMINISTRATION]\r\n-  IRC admin <ircadm@anarxi.st>\r\n-  \r\n-  We are not looking for IRC operators. Please do not ask.\r\n- \r\n-  [SPONSORS]\r\n-  anarxi.st team \r\n- -----------------------------------------------------------------------\r\n- Codepages per ports are:        |    Русские кодовые таблицы по портам:\r\n- -----------------------         |    ----------------------------------\r\n-   6660: UTF-8               7770: UTF-8           9996: UTF-8 (SSL)\r\n-   6666: UTF-8               7771: CP1251          9997: KOI8-R (SSL)\r\n-   6667: KOI8-U              7772: CP866           9998: Translit (SSL)\r\n-   6668: Translit            7773: ISO-8859-5      9999: CP1251 (SSL)\r\n-   6669: CP1251              7774: MacCyrillic\r\n-                             7775: Translit \r\n-   3128 extra port (CP1251) \r\n- -----------------------         |    ----------------------------------   \r\n-  To change codepage on-the-fly: |      Сменить таблицу \"на лету\" можно:\r\n-                  /quote codepage codepage-name\r\n- -----------------------         |    ---------------------------------- \r\n- Network Services running:       |              В сети работают сервисы:\r\n-               NickServ, MemoServ, ChanServ\r\n- Start using them with:          |              Начните работу с ними с:\r\n-                   /msg NickServ@*.RusNet help\r\n-   (/msg MemoServ@*.RusNet help или /msg ChanServ@*.RusNet help)\r\n-  [ADMINISTRATION]\r\n-  IRC admin <ircadm@anarxi.st>\r\n-  \r\n-  We are not looking for IRC operators. Please do not ask.\r\n- \r\n-  [SPONSORS]\r\n-  anarxi.st team \r\n- -----------------------------------------------------------------------\r\n- Codepages per ports are:        |    Русские кодовые таблицы по портам:\r\n- -----------------------         |    ----------------------------------\r\n-   6660: UTF-8               7770: UTF-8           9996: UTF-8 (SSL)\r\n-   6666: UTF-8               7771: CP1251          9997: KOI8-R (SSL)\r\n-   6667: KOI8-U              7772: CP866           9998: Translit (SSL)\r\n-   6668: Translit            7773: ISO-8859-5      9999: CP1251 (SSL)\r\n-   6669: CP1251              7774: MacCyrillic\r\n-                             7775: Translit \r\n-   3128 extra port (CP1251) \r\n- -----------------------         |    ----------------------------------   \r\n-  To change codepage on-the-fly: |      Сменить таблицу \"на лету\" можно:\r\n-                  /quote codepage codepage-name\r\n- -----------------------         |    ---------------------------------- \r\n- Network Services running:       |              В сети работают сервисы:\r\n-               NickServ, MemoServ, ChanServ\r\n- Start using them with:          |              Начните работу с ними с:\r\n-                   /msg NickServ@*.RusNet help\r\n-   (/msg MemoServ@*.RusNet help или /msg ChanServ@*.RusNet help)\r\n- -----------------------         |   ----------------------------------\r\n-   Net\'s official channels:      |      Официальные каналы сети:\r\n- -----------------------             ----------------------------------\r\n- #help - questions and problems  |    #help - вопросы и проблемы,\r\n- #abuse - abuse and violations   |    #abuse - жалобы на нарушения\r\n- #announces - chan announcements |    #announces - анонсы каналов\r\n- \r\n- Ads are allowed only on         | Реклама каналов допустима только\r\n- #announces, otherwise it will   | на канале #announces, в остальных\r\n- be dealt with as with spam      | случаях она приравнивается к спаму.\r\n- -----------------------------------------------------------------------\r\n- This server supports SSL connections\r\n- -----------------------------------------------------------------------\r\n- Current Administrative contact:            IRC admin <ircadm@anarxi.st>\r\n- irc.anarxi.st WEB server:                          http://irc.anarxi.st\r\n- RusNet WEB server:                                   http://www.rus.net\r\n- =======================================================================\r\nEnd of MOTD command.', 0),
+(2, 'irc.newit-lan.ru', NULL, NULL, NULL, NULL, '- irc.newit-lan.ru Message of the Day - \r\n- 19/5/2014 16:21\r\n- =======================================================================\r\n- RusNet IRC Network                                   *NewIT* IRC Server\r\n- -----------------------------------------------------------------------\r\n-            Codepages:                          Кодировки:\r\n-  6667: koi8-r             6669: cp1251             6668: translit\r\n-  7770: koi8-r             7771: cp1251             7773: iso-8859-5\r\n-                                                    7774: macintosh\r\n-  9997: koi8-r (ssl)       9999: cp1251 (ssl)       9998: translit (ssl)\r\n-  \r\n-  To change your codepage on-the-fly:      Сменить кодировку \"на лету\":\r\n-    /quote charset charset-name       (Пример: /quote charset koi8-r)\r\n- -----------------------------------------------------------------------\r\n- There are Network Services runing:             В сети работают сервисы:\r\n-                     NickServ, MemoServ, ChanServ\r\n- Start using them with:                  Начните работу с ними с команд:\r\n-                 /nickserv help (/quote nickserv help),\r\n-                 /chanserv help (/quote chanserv help),\r\n-                 /memoserv help (/quote memoserv help)\r\n- -----------------------------------------------------------------------\r\n-  RusNet rules:                                    Правила сети RusNet:\r\n-                  http://www.rus-net.org/rules.html\r\n- -----------------------------------------------------------------------\r\n-                  Сайт сети: http://www.rus-net.org/\r\n-               Форум сети: http://www.rus-net.org/forum/\r\n- -----------------------------------------------------------------------\r\n- Administrative contact:                 email: <logrus.newit@gmail.com>\r\n- =======================================================================\r\n- NO: WARS, FLOOD, SPAM!                    НЕТ: ВОЙНАМ, АТАКАМ, РЕКЛАМЕ!\r\n- BE POLITE AND FRIENDLY!      -={*}=-       БУДЬТЕ ВЕЖЛИВЫ И ДРУЖЕЛЮБНЫ!\r\n- =======================================================================\r\nEnd of MOTD command.', 0),
+(3, 'irc.run.net', '2.63.252.5', NULL, '(подключаться по IP: <strong>2.63.252.5</strong>)', '<strong>ВАЖНО!</strong> Домен run.net продан, подключаться по IP: <strong>2.63.252.53</strong>', '- irc.run.net Message of the Day - \r\n- 26/7/2011 22:42\r\n- \r\n- SPB IRC Network                                             irc.run.net\r\n- -----------------------------------------------------------------------\r\n-        Welcome to irc.run.net, located in St-Peterburg, Russia\r\n- \r\n-                 ___    __    __    __  _ _  _____  \r\n-               / _  \\/\\ \\ \\/\\ \\ \\/\\ \\ \\/ _ \\/__   \\   \r\n-              / /_/ / / / /  \\/ /  \\/ / _ \\/  / /\\/  \r\n-             / /_  / /_/ / /\\  / /\\  / /_\\/  / /  \r\n-            /_/  \\_\\____/\\_\\ \\/\\_\\ \\/\\___\\   \\/  \r\n-                      RUSNet IRC Network  \r\n- \r\n- \r\n-  [RULES]\r\n-  Bots: We do not allow bots, but will not remove them unless they \r\n-  bother us.\r\n-  \r\n-  Spam: Unsolicited advertisements will not be tolerated.\r\n-  Content: We will not tolerate the distribution of illegal materials,\r\n-  including software piracy or child pornography.\r\n-  \r\n-  We reserve the right to remove your access to this server at any time.\r\n-  Any violation of the rules stated above will result in you being\r\n-  banished from the island.\r\n-  \r\n-  No monitoring of private communications will ever occur on this\r\n-  server. The administration of this server believes strongly in your\r\n-  inalienable human right to privacy.\r\n-  \r\n-  [ADMINISTRATION]\r\n-  Silencio <silence (at) irc.run.net>\r\n-  \r\n-  We are not looking for IRC operators. Please do not ask.\r\n- \r\n-  [WHO HELPS US]\r\n-  *** RUNNet ***\r\n-  Russian University Network http://www.runnet.ru\r\n- \r\n-  *** DevExperts inc. ***\r\n-  This project is sponsored by DevExperts inc. http://www.devexperts.com \r\n- \r\n-  *** Deware LLC ***\r\n-  NetGuard Solutions inc. \r\n-  (Real Time Intrusion Prevention and Dynamic Filtering)\r\n-  \r\n- ----------------------------------------------------------------------- \r\n- Codepages per ports are:        |    Kodirovki po portam: \r\n- -----------------------         |    ---------------------------------- \r\n-   6660: UTF-8               7770: KOI8-R              7774: Macintosh \r\n-   6667: KOI8-U              7771: CP1251                  7775: ASCII \r\n-   6668: ASCII               7772: CP866                \r\n-   6669: CP1251              7773: ISO-8859-5           \r\n-   -----------------------------------------------------------------\r\n-   9997: KOI8-R (SSL)        9998: Translit (SSL)    9999: CP1251(SSL)\r\n- -----------------------         |    ----------------------------------    \r\n-  To change codepage on-the-fly: |     Smenit\' kodirovku na-letu: \r\n-                  /quote codepage codepage-name \r\n- -----------------------         |    ----------------------------------  \r\n- Network Services running:       |         V seti rabotajut servisy: \r\n-                   NickServ, ChanServ, MemoServ\r\n- Start using them with:          |     Dlya nachala naberite comandu:  \r\n-                   /msg NickServ@*.RusNet help \r\n-   (/msg MemoServ@*.RusNet help or /msg ChanServ@*.RusNet help)  \r\n- -----------------------         |    ----------------------------------  \r\n- If you need help                |        Esli nuzhna pomosch:\r\n-                           /join #help\r\n-                           /join #abuse \r\n- -----------------------         |    ---------------------------------- \r\n- This server supports SSL on ports 9997(koi8), 9998(translit), 9999(win)\r\n- ----------------------------------------------------------------------- \r\n- Current Administrative contact:       IRC admin <ircadm at irc.run.net> \r\n- irc.run.net WEB server:                             http://irc.run.net\r\n- irc.run.net WEB-gate:                                http://irc.spb.ru \r\n- RusNet WEB server:                                  http://www.rus.net \r\n- =======================================================================\r\nEnd of MOTD command.', 0),
+(4, 'irc.tambov.ru', NULL, NULL, NULL, NULL, '- irc.tambov.ru Message of the Day - \r\n- 22/2/2013 15:51\r\n- =======================================================================\r\n- RusNet IRC Network                               Tambov IRC IPv6 Server\r\n- -----------------------------------------------------------------------\r\n- Now, the supported codepages are on the following ports:\r\n- \r\n-   6667: KOI8-R           7770: UTF-8           7773: ISO-8859_5 \r\n-   6668: Translit         7771: CP1251          7774: Macintosh \r\n-   6669: CP1251           7772: CP866           7775: Translit \r\n- \r\n- with SSL:\r\n- \r\n-   9996: UTF-8      9997: KOI8-R      9998: Translit      9999: CP1251\r\n- ----------------------------------------------------------------------\r\n- IPv6: irc6.tambov.ru; ports are the same\r\n- ----------------------------------------------------------------------\r\n- Always remember that IRC is not a right, it is a _privilege_\r\n- ----------------------------------------------------------------------\r\n- Administrative contact:                        denis at tambov dot ru \r\n- ======================================================================\r\nEnd of MOTD command.', 0),
+(5, 'irc.tomsk.net', NULL, NULL, NULL, NULL, '- irc.tomsk.net Message of the Day - \r\n- 10/4/2024 4:36\r\n- =======================================================================\r\n- RusNet IRC Network | Tomsk IRC server | \r\n- =======================================================================\r\n- Location:  Tomsk, Russia\r\n- Admin contact:    Gnomus (pz@gnomus.ru)\r\n- \r\n- Codepages per ports are (Русские кодовые таблицы по портам):\r\n- \r\n-       6666: UTF-8\r\n-       6667: KOI8-R\r\n-       6668: Translit\r\n-       6669: CP1251\r\n- \r\n- Codepages per ports with SSL support:\r\n-       9996: UTF-8\r\n-       9997: KOI8-R\r\n-       9998: Translit\r\n-       9999: CP1251\r\n- \r\n- To change your codepage on-the-fly (Сменить таблицу \"на лету\" можно):\r\n-       /quote codepage codepage-name\r\n- \r\n- There are Network Services running (В сети работают сервисы):\r\n-       NickServ, MemoServ, ChanServ\r\n- \r\n- Start using them with (Начните работу с ними с):\r\n-       /msg NickServ@*.Rusnet help, /msg ChanServ@*.Rusnet help\r\n- \r\n- Help Channels on the net (В сети есть каналы помощи):\r\n-       /join #help - help channel (канал помощи)\r\n-       /join #abuse - abuse channel (канал жалоб)\r\n-       /join #announces - channel for announce channel\r\n-                          (канал для анонсов каналов)\r\n- \r\n- RusNet network Rules and FAQ (Правила сети RusNet и FAQ)\r\n-       http://ircfaq.gnomus.ru http://www.rus-net.org/rules.html\r\n- =======================================================================\r\n- NO: CLONES, WARS, FLOOD, SPAM!   НЕТ: КЛОНАМ, ВОЙНАМ, АТАКАМ, РЕКЛАМЕ!\r\n- =======================================================================\r\nEnd of MOTD command.', 0);
+
+--
+-- Indexes for dumped tables
+--
+
+--
+-- Indexes for table `servers`
+--
+ALTER TABLE `servers`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `servers`
+--
+ALTER TABLE `servers`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+COMMIT;
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
