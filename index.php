@@ -1,11 +1,9 @@
 <?php
-
 require_once('config.php');
 
 $items = (new mysqli(HOST, USER, PASS, DB))
-    ->query("SELECT * FROM `servers`")
+    ->query("SELECT * FROM `servers` ORDER BY `domain` ASC")
     ->fetch_all(MYSQLI_ASSOC);
-
 ?>
 <!DOCTYPE html>
 <html lang="ru">
