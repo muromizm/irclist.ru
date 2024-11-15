@@ -106,7 +106,7 @@ $items = (new mysqli(HOST, USER, PASS, DB))
         </div>
         <?php } ?>
 
-        <p class="updated">Обновлено 16 сентября 2024 года. <a href="mailto:melloist@yandex.ru">Связаться</a>.</p>
+        <p class="updated">Обновлено 15 ноября 2024 года. <a href="mailto:melloist@yandex.ru">Связаться</a>.</p>
         <div id="topcontrol" title="Наверх">
             <p class="arrow">&uarr;</p>
             <p>Наверх</p>
