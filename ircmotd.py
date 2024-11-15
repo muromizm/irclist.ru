@@ -5,6 +5,7 @@ import errno
 import config
 import mysql.connector
 from time import sleep
+from datetime import date
 
 def getMotd(ircServer, ircPort):
     sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
@@ -55,4 +56,9 @@ for server in servers:
 
     if ircServer != None and ircPort != None:
         motd = getMotd(ircServer, ircPort)
-        print(motd)
+        
+        if (motd):
+            cursor.execute("""UPDATE `servers` SET `motd` = %s, `updated_at` = %s WHERE `id` = %s""",(motd, date.today(), server[0]))
+
+db.commit()
+db.close()
