@@ -9,7 +9,12 @@ from datetime import date
 
 def getMotd(ircServer, ircPort):
     sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-    sock.connect((ircServer, int(ircPort)))
+    sock.settimeout(60)
+    try:
+        sock.connect((ircServer, int(ircPort)))
+    except:
+        return
+    sock.settimeout(None)
     fcntl.fcntl(sock, fcntl.F_SETFL, os.O_NONBLOCK)
 
     sock.send('USER {0} localhost localhost {0}'.format('irclist_ru').encode() + b'\r\n')
