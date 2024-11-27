@@ -4,6 +4,8 @@ require_once('config.php');
 $items = (new mysqli(HOST, USER, PASS, DB))
     ->query("SELECT * FROM `servers` ORDER BY `domain` ASC")
     ->fetch_all(MYSQLI_ASSOC);
+
+$updatedAt = 0;
 ?>
 <!DOCTYPE html>
 <html lang="ru">
@@ -61,6 +63,10 @@ $items = (new mysqli(HOST, USER, PASS, DB))
             .remark {
                 color: #999999;
             }
+            .updated-at {
+                color: #999999;
+                text-align: center;
+            }
             @media screen and (max-width: 38rem) {
                 #topcontrol {
                     display: none;
@@ -88,25 +94,33 @@ $items = (new mysqli(HOST, USER, PASS, DB))
             <ol>
 
             <?php foreach ($items as $i => $item) { ?>
+                <?php if ($item["updated_at"] > $updatedAt) {
+                    $updatedAt = $item["updated_at"];
+                } ?>
+                <?php if ($item["motd"]) { ?>
                 <li><a href="#server-<?= str_pad($i, 2, '0', STR_PAD_LEFT) ?>"><?= $item["domain"] ?></a><?= $item["menu_comment"] ? ' <span class="remark">' . $item["menu_comment"] . '</span>' : '' ?></li>
+                <?php } ?>
             <?php } ?>
 
             </ol>
         </div>
 
         <?php foreach ($items as $i => $item) { ?>
-        <div class="server-item" id="server-<?= str_pad($i, 2, '0', STR_PAD_LEFT) ?>">
-            <h2><?= $item["domain"] ?></h2>
-            <?= $item["item_comment"] ? '<p>' . $item["item_comment"] . '</p>' : '' ?>
-            <div class="motd">
-                <pre>
+            <?php if ($item["motd"]) { ?>
+            <div class="server-item" id="server-<?= str_pad($i, 2, '0', STR_PAD_LEFT) ?>">
+                <h2><?= $item["domain"] ?></h2>
+                <?= $item["item_comment"] ? '<p>' . $item["item_comment"] . '</p>' : '' ?>
+                <div class="motd">
+                    <pre>
 <?= htmlspecialchars($item["motd"]) ?>
-                </pre>
+                    </pre>
+                </div>
+                <div class="updated-at">Обновлено <?= date("d.m.Y", $item["updated_at"]) ?></div>
             </div>
-        </div>
+            <?php } ?>
         <?php } ?>
 
-        <p class="updated">Обновлено 15 ноября 2024 года. <a href="mailto:melloist@yandex.ru">Связаться</a>.</p>
+        <p class="updated">Обновлено <?= date("d.m.Y", $item["updated_at"]) ?>. <a href="mailto:melloist@yandex.ru">Связаться</a>.</p>
         <div id="topcontrol" title="Наверх">
             <p class="arrow">&uarr;</p>
             <p>Наверх</p>

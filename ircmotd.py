@@ -4,8 +4,7 @@ import fcntl, os
 import errno
 import config
 import mysql.connector
-from time import sleep
-from datetime import date
+import time
 
 def getMotd(ircServer, ircPort):
     sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
@@ -17,8 +16,8 @@ def getMotd(ircServer, ircPort):
     sock.settimeout(None)
     fcntl.fcntl(sock, fcntl.F_SETFL, os.O_NONBLOCK)
 
-    sock.send('USER {0} localhost localhost {0}'.format('irclist_ru').encode() + b'\r\n')
-    sock.send('NICK {}'.format('irclist_ru').encode() + b'\r\n')
+    sock.send('USER {0} localhost localhost {0}'.format('ilr').encode() + b'\r\n')
+    sock.send('NICK {}'.format('ilr').encode() + b'\r\n')
 
     isRecvBegin = False
     recvs = []
@@ -29,7 +28,7 @@ def getMotd(ircServer, ircPort):
         except socket.error as e:
             err = e.args[0]
             if err == errno.EAGAIN or err == errno.EWOULDBLOCK:
-                sleep(2)
+                time.sleep(2)
                 if isRecvBegin:
                     break
                 else:
@@ -60,10 +59,14 @@ for server in servers:
     ircPort = server[3]
 
     if ircServer != None and ircPort != None:
+        print(ircServer, ircPort)
+        
         motd = getMotd(ircServer, ircPort)
         
-        if (motd):
-            cursor.execute("""UPDATE `servers` SET `motd` = %s, `updated_at` = %s WHERE `id` = %s""",(motd, date.today(), server[0]))
+        print(motd)
 
-db.commit()
+        if (motd):
+            cursor.execute("""UPDATE `servers` SET `motd` = %s, `updated_at` = %s WHERE `id` = %s""",(motd, time.time(), server[0]))
+            db.commit()
+
 db.close()
