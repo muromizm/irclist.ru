@@ -59,11 +59,7 @@ for server in servers:
     ircPort = server[3]
 
     if ircServer != None and ircPort != None:
-        print(ircServer, ircPort)
-        
         motd = getMotd(ircServer, ircPort)
-        
-        print(motd)
 
         if (motd):
             cursor.execute("""UPDATE `servers` SET `motd` = %s, `updated_at` = %s WHERE `id` = %s""",(motd, time.time(), server[0]))
