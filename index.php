@@ -22,10 +22,8 @@ $updatedAt = 0;
             }
             body {
                 font-family: monospace;
-                max-width: max-content;
-                margin: auto;
                 background: #ffffff;
-                padding: 50px 0;
+                padding: 3% 20px;
             }
             a {
                 color: #000000;
@@ -34,7 +32,11 @@ $updatedAt = 0;
                 text-decoration-thickness: 2px;
                 font-weight: bold;
             }
+            pre {
+                white-space: pre-wrap;
+            }
             .motd {
+                max-width: 97%;
                 color: white;
                 background: #000000;
                 display: inline-block;
@@ -49,8 +51,11 @@ $updatedAt = 0;
                 margin-top: 50px;
             }
             #topcontrol {
+                background: #ffffff;
+                border-radius: 10px;
+                width: 100px;
                 position: fixed;
-                bottom: 10px;
+                bottom: 30px;
                 right: 20px;
                 opacity: 0;
                 cursor: pointer;
@@ -65,12 +70,7 @@ $updatedAt = 0;
             }
             .updated-at {
                 color: #999999;
-                text-align: center;
-            }
-            @media screen and (max-width: 38rem) {
-                #topcontrol {
-                    display: none;
-                }
+                text-align: right;
             }
         </style>
     </head>
@@ -114,8 +114,8 @@ $updatedAt = 0;
                     <pre>
 <?= htmlspecialchars($item["motd"]) ?>
                     </pre>
+                    <div class="updated-at">Обновлено <?= date("d.m.Y", $item["updated_at"]) ?></div>
                 </div>
-                <div class="updated-at">Обновлено <?= date("d.m.Y", $item["updated_at"]) ?></div>
             </div>
             <?php } ?>
         <?php } ?>
