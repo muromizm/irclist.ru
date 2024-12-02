@@ -41,7 +41,7 @@ def getMotd(ircServer, ircPort):
             recvs.append(data.decode('utf-8'))
 
     sock.close()
-    return ''.join(recvs)
+    return ''.join(recvs) if len(recvs) > 1 else None
 
 db = mysql.connector.connect(
     user = config.dbUser,
