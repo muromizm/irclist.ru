@@ -25,6 +25,7 @@ def getMotd(ircServer, ircPort):
     while True:
         try:
             data = sock.recv(4096)
+            print(data)
         except socket.error as e:
             err = e.args[0]
             if err == errno.EAGAIN or err == errno.EWOULDBLOCK:
@@ -41,7 +42,8 @@ def getMotd(ircServer, ircPort):
             recvs.append(data.decode('utf-8'))
 
     sock.close()
-    return ''.join(recvs) if len(recvs) > 1 else None
+    ret = ''.join(recvs)
+    return ret if len(ret) > 150 else None
 
 db = mysql.connector.connect(
     user = config.dbUser,
@@ -58,11 +60,11 @@ for server in servers:
     ircServer = (server[1], server[2])[server[2] != None]
     ircPort = server[3]
 
-    if ircServer != None and ircPort != None:
+    if ircServer != None and ircPort != None and ircServer == '2.63.252.5':
         motd = getMotd(ircServer, ircPort)
 
-        if (motd):
-            cursor.execute("""UPDATE `servers` SET `motd` = %s, `updated_at` = %s WHERE `id` = %s""",(motd, time.time(), server[0]))
-            db.commit()
+        # if (motd):
+        #     cursor.execute("""UPDATE `servers` SET `motd` = %s, `updated_at` = %s WHERE `id` = %s""",(motd, time.time(), server[0]))
+        #     db.commit()
 
 db.close()

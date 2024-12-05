@@ -91,6 +91,7 @@ $updatedAt = 0;
         <noscript><div><img src="https://mc.yandex.ru/watch/98308638" style="position:absolute; left:-9999px;" alt=""></div></noscript>
         <div class="server-list">
             <h1>Работающие ИРЦ-серверы Руснета:</h1>
+            <p><strong>Важно!</strong><br>Этот список не претендует на полноту.<br>Есть и другие серверы.<br>Нижеперечисленные серверы наиболее легко доступны для подключения из России.</p>
             <ol>
 
             <?php foreach ($items as $i => $item) { ?>
