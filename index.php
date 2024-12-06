@@ -5,7 +5,7 @@ $items = (new mysqli(HOST, USER, PASS, DB))
     ->query("SELECT * FROM `servers` ORDER BY `domain` ASC")
     ->fetch_all(MYSQLI_ASSOC);
 
-$updatedAt = 0;
+$updatedAt = max(array_column($items, 'updated_at'));
 ?>
 <!DOCTYPE html>
 <html lang="ru">
@@ -49,6 +49,7 @@ $updatedAt = 0;
             }
             .updated {
                 margin-top: 50px;
+                margin-bottom: 30px;
             }
             #topcontrol {
                 background: #ffffff;
@@ -71,6 +72,11 @@ $updatedAt = 0;
             .updated-at {
                 color: #999999;
                 text-align: right;
+            }
+            .icon {
+                font-size: xx-large;
+                margin-right: 7px;
+                vertical-align: middle;
             }
         </style>
     </head>
@@ -96,9 +102,6 @@ $updatedAt = 0;
             <ol>
 
             <?php foreach ($items as $i => $item) { ?>
-                <?php if ($item["updated_at"] > $updatedAt) {
-                    $updatedAt = $item["updated_at"];
-                } ?>
                 <?php if ($item["motd"]) { ?>
                 <li><a href="#server-<?= str_pad($i, 2, '0', STR_PAD_LEFT) ?>"><?= $item["domain"] ?></a><?= $item["menu_comment"] ? ' <span class="remark">' . $item["menu_comment"] . '</span>' : '' ?></li>
                 <?php } ?>
@@ -122,7 +125,9 @@ $updatedAt = 0;
             <?php } ?>
         <?php } ?>
 
-        <p class="updated">Обновлено <?= date("d.m.Y", $item["updated_at"]) ?>. <a href="mailto:melloist@yandex.ru">Связаться</a>.</p>
+        <p class="updated">Страница обновлена <?= date("d.m.Y", $updatedAt) ?></p>
+        <p><span class="icon">&#9993;</span><a href="mailto:melloist@yandex.ru">Связаться</a></p>
+        <p><span class="icon">&#9998;</span><a href="https://github.com/muromizm/irclist.ru" rel="nofollow">Гитхаб</a></p>
         <div id="topcontrol" title="Наверх">
             <p class="arrow">&uarr;</p>
             <p>Наверх</p>
