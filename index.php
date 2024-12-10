@@ -117,7 +117,7 @@ $updatedAt = max(array_column($items, 'updated_at'));
                 <?= $item["item_comment"] ? '<p>' . $item["item_comment"] . '</p>' : '' ?>
                 <div class="motd">
                     <pre>
-<?= htmlspecialchars($item["motd"]) ?>
+<?= htmlspecialchars(preg_replace('/:' . $item['domain'] . ' \d{3} ilr /', '', $item["motd"])) ?>
                     </pre>
                     <div class="updated-at">Обновлено <?= date("d.m.Y", $item["updated_at"]) ?></div>
                 </div>
