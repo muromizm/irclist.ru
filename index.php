@@ -56,7 +56,7 @@ $updatedAt = max(array_column($items, 'updated_at'));
                 border-radius: 10px;
                 width: 100px;
                 position: fixed;
-                bottom: 30px;
+                bottom: 50px;
                 right: 20px;
                 opacity: 0;
                 cursor: pointer;
@@ -117,7 +117,7 @@ $updatedAt = max(array_column($items, 'updated_at'));
                 <?= $item["item_comment"] ? '<p>' . $item["item_comment"] . '</p>' : '' ?>
                 <div class="motd">
                     <pre>
-<?= htmlspecialchars(preg_replace('/:' . $item['domain'] . ' \d{3} ilr /', '', $item["motd"])) ?>
+<?= htmlspecialchars(preg_replace('/:' . $item["domain"] . ' \d{3} ilr /', '', $item["motd"])) ?>
                     </pre>
                     <div class="updated-at">Обновлено <?= date("d.m.Y", $item["updated_at"]) ?></div>
                 </div>
@@ -126,8 +126,10 @@ $updatedAt = max(array_column($items, 'updated_at'));
         <?php } ?>
 
         <p class="updated">Страница обновлена <?= date("d.m.Y", $updatedAt) ?></p>
-        <p><span class="icon">&#9993;</span><a href="mailto:melloist@yandex.ru">Связаться</a></p>
-        <p><span class="icon">&#9998;</span><a href="https://github.com/muromizm/irclist.ru" rel="nofollow">Гитхаб</a></p>
+        <p>
+            <span class="icon">&#9993;</span><a href="mailto:melloist@yandex.ru">Связаться</a><br>
+            <span class="icon">&#9998;</span><a href="https://github.com/muromizm/irclist.ru" rel="nofollow">Гитхаб</a>
+        </p>
         <div id="topcontrol" title="Наверх">
             <p class="arrow">&uarr;</p>
             <p>Наверх</p>
