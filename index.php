@@ -37,15 +37,18 @@ $updatedAt = max(array_column($items, 'updated_at'));
             }
             .motd {
                 max-width: 97%;
-                color: white;
+                color: #ffffff;
                 background: #000000;
                 display: inline-block;
                 padding: 10px;
                 border-radius: 10px;
             }
             .server-item {
-                margin-top: 30px;
+                margin-top: 100px;
                 padding-top: 1px;
+            }
+            .server-item > h2 > span {
+                color: #999999;
             }
             .updated {
                 margin-top: 50px;
@@ -72,6 +75,15 @@ $updatedAt = max(array_column($items, 'updated_at'));
             .updated-at {
                 color: #999999;
                 text-align: right;
+            }
+            .green {
+                color: #009900
+            }
+            .yellow {
+                color: #ffbf00;
+            }
+            .red {
+                color: #ff0000;
             }
             .icon {
                 font-size: xx-large;
@@ -111,15 +123,24 @@ $updatedAt = max(array_column($items, 'updated_at'));
         </div>
 
         <?php foreach ($items as $i => $item) { ?>
-            <?php if ($item["motd"]) { ?>
+            <?php if ($item["motd"]) {
+                $updatedAtYmd = date('Ymd', $item["updated_at"]);
+                if (date('Ymd') === $updatedAtYmd) {
+                    $color = "green";
+                } elseif (date('Ymd') - $updatedAtYmd < 4) {
+                    $color = "yellow";
+                } else {
+                    $color = "red";
+                }
+            ?>
             <div class="server-item" id="server-<?= str_pad($i, 2, '0', STR_PAD_LEFT) ?>">
-                <h2><?= $item["domain"] ?></h2>
+                <h2><?= $item["domain"] ?><span>:<?= $item["port"] ?></span></h2>
                 <?= $item["item_comment"] ? '<p>' . $item["item_comment"] . '</p>' : '' ?>
                 <div class="motd">
                     <pre>
 <?= htmlspecialchars(preg_replace('/:' . $item["domain"] . ' \d{3} ilr /', '', $item["motd"])) ?>
                     </pre>
-                    <div class="updated-at">Обновлено <?= date("d.m.Y", $item["updated_at"]) ?></div>
+                    <div class="updated-at <?= $color ?>">Обновлено <?= date("d.m.Y", $item["updated_at"]) ?></div>
                 </div>
             </div>
             <?php } ?>
