@@ -15,6 +15,7 @@ $updatedAt = max(array_column($items, 'updated_at'));
         <meta name="description" content="Актуальный список работающих IRC-серверов сети RusNet.">
         <meta name="keywords" content="irc, rusnet, серверы, рабочие, ирц, руснет, rusnet irc servers, motd">
         <link rel="icon" type="image/x-icon" href="/favicon.ico">
+        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
         <title>Работающие ИРЦ-серверы Руснета</title>
         <style>
             html {
