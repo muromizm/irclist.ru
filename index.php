@@ -127,11 +127,9 @@ $updatedAt = max(array_column($items, 'updated_at'));
 
         <?php foreach ($items as $i => $item) { ?>
             <?php if ($item["motd"]) {
-                $updatedAtYmd = date('Ymd', $item["updated_at"]);
-                
-                if (date('Ymd') === $updatedAtYmd) {
+                if (date('Ymd') === date('Ymd', $item["updated_at"])) {
                     $color = "green";
-                } elseif (date('Ymd') - $updatedAtYmd < 4) {
+                } elseif (time() - $item["updated_at"] < 260000) {
                     $color = "yellow";
                 } else {
                     $color = "red";
