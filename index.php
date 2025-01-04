@@ -47,7 +47,7 @@ $updatedAt = max(array_column($items, 'updated_at'));
                 border-radius: 10px;
             }
             .server-item {
-                margin-top: 100px;
+                margin-top: 60px;
                 padding-top: 1px;
             }
             .server-item > h2 > span {
@@ -80,7 +80,7 @@ $updatedAt = max(array_column($items, 'updated_at'));
                 text-align: right;
             }
             .green {
-                color: #009900
+                color: #00cc00
             }
             .yellow {
                 color: #ffbf00;
@@ -109,7 +109,11 @@ $updatedAt = max(array_column($items, 'updated_at'));
                 accurateTrackBounce:true
            });
         </script>
-        <noscript><div><img src="https://mc.yandex.ru/watch/98308638" style="position:absolute; left:-9999px;" alt=""></div></noscript>
+        <noscript>
+            <div>
+                <img src="https://mc.yandex.ru/watch/98308638" style="position:absolute; left:-9999px;" alt="">
+            </div>
+        </noscript>
         <div class="server-list">
             <h1>Работающие ИРЦ-серверы Руснета</h1>
             <p><strong>Важно!</strong><br>Этот список не претендует на полноту.<br>Есть и другие серверы.</p>
@@ -118,7 +122,12 @@ $updatedAt = max(array_column($items, 'updated_at'));
 
             <?php foreach ($items as $i => $item) { ?>
                 <?php if ($item["motd"]) { ?>
-                <li><a href="#server-<?= str_pad($i, 2, '0', STR_PAD_LEFT) ?>"><?= $item["domain"] ?></a><?= $item["menu_comment"] ? ' <span class="remark">' . $item["menu_comment"] . '</span>' : '' ?></li>
+                <li>
+                    <a href="#server-<?= str_pad($i, 2, '0', STR_PAD_LEFT) ?>">
+                        <?= $item["domain"] ?>
+                    </a>
+                    <?= $item["menu_comment"] ? ' <span class="remark">' . $item["menu_comment"] . '</span>' : '' ?>
+                </li>
                 <?php } ?>
             <?php } ?>
 
@@ -142,7 +151,7 @@ $updatedAt = max(array_column($items, 'updated_at'));
                     <pre>
 <?= htmlspecialchars(preg_replace('/:' . $item["domain"] . ' \d{3} ilr /', '', $item["motd"])) ?>
                     </pre>
-                    <div class="updated-at <?= $color ?>">Обновлено <?= date("d.m.Y", $item["updated_at"]) ?></div>
+                    <div class="updated-at <?= $color ?>">Этот ответ сервера получен автоматически <?= date("d.m.Y", $item["updated_at"]) ?></div>
                 </div>
             </div>
             <?php } ?>
