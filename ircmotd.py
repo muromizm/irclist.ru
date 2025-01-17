@@ -24,7 +24,7 @@ def getMotd(ircServer, ircPort):
 
     while True:
         try:
-            data = sock.recv(4096)
+            data = sock.recv(8000)
         except socket.error as e:
             err = e.args[0]
             if err == errno.EAGAIN or err == errno.EWOULDBLOCK:
