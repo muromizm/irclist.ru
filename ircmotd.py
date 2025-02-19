@@ -1,4 +1,3 @@
-import sys
 import socket
 import fcntl, os
 import errno
@@ -11,8 +10,9 @@ def getMotd(ircServer, ircPort):
     sock.settimeout(60)
     try:
         sock.connect((ircServer, int(ircPort)))
-    except:
-        return
+    except Exception as e:
+        print(f"Ошибка подключения к {ircServer}:{ircPort}: {str(e)}")
+        return None
     sock.settimeout(None)
     fcntl.fcntl(sock, fcntl.F_SETFL, os.O_NONBLOCK)
 
@@ -25,6 +25,8 @@ def getMotd(ircServer, ircPort):
     while True:
         try:
             data = sock.recv(8000)
+            if not data:
+                break
         except socket.error as e:
             err = e.args[0]
             if err == errno.EAGAIN or err == errno.EWOULDBLOCK:
@@ -34,7 +36,8 @@ def getMotd(ircServer, ircPort):
                 else:
                     continue
             else:
-                sys.exit(1)
+                print(f"Ошибка при получении данных: {str(e)}")
+                return None
         else:
             if not isRecvBegin:
                isRecvBegin = True
@@ -60,10 +63,13 @@ for server in servers:
     ircPort = server[3]
 
     if ircServer != None and ircPort != None:
-        motd = getMotd(ircServer, ircPort)
-
-        if (motd):
-            cursor.execute("""UPDATE `servers` SET `motd` = %s, `updated_at` = %s WHERE `id` = %s""",(motd, time.time(), server[0]))
-            db.commit()
+        try:
+            motd = getMotd(ircServer, ircPort)
+            if motd:
+                cursor.execute("""UPDATE `servers` SET `motd` = %s, `updated_at` = %s WHERE `id` = %s""",
+                             (motd, time.time(), server[0]))
+                db.commit()
+        except Exception as e:
+            print(f"Ошибка при обработке сервера {ircServer}:{ircPort}: {str(e)}")
 
 db.close()
