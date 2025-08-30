@@ -532,8 +532,6 @@ $updatedAt = max(array_column($items, 'updated_at'));
         <div class="container">
             <div class="server-list">
                 <h1>Работающие ИРЦ-серверы Руснета</h1>
-            <p><strong>Важно!</strong><br>Этот список не претендует на полноту.<br>Есть и другие серверы.</p>
-            <p>Нижеперечисленные серверы наиболее легко доступны для подключения из России:</p>
             <ol>
 
             <?php foreach ($items as $i => $item) { ?>
